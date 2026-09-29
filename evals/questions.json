@@ -1,0 +1,25 @@
+[
+  {"type": "locate",
+   "q": "Which repository method finds owners by last name prefix?",
+   "expect": ["findByLastNameStartingWith"]},
+
+  {"type": "locate",
+   "q": "Which class does Vet extend?",
+   "expect": ["Person"]},
+
+  {"type": "locate",
+   "q": "Which class declares the id field shared by the entities?",
+   "expect": ["BaseEntity"]},
+
+  {"type": "locate",
+   "q": "Which class represents a pet's type, and what does it extend?",
+   "expect": ["PetType", "NamedEntity"]},
+
+  {"type": "trace",
+   "q": "Which controller method builds the PageRequest for the owners list, and in which class is it?",
+   "expect": ["OwnerController", "findPaginatedForOwnersLastName"]},
+
+  {"type": "locate",
+   "q": "Which controller serves the vets list?",
+   "expect": ["VetController"]}
+]
