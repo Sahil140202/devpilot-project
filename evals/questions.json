@@ -1,25 +1,17 @@
 [
-  {"type": "locate",
-   "q": "Which repository method finds owners by last name prefix?",
-   "expect": ["findByLastNameStartingWith"]},
+  {"type": "locate", "q": "Which repository method finds owners by last name prefix?", "expect": ["findByLastNameStartingWith"]},
+  {"type": "locate", "q": "Which class does Vet extend?", "expect": ["Person"]},
+  {"type": "locate", "q": "Which class declares the id field shared by the entities?", "expect": ["BaseEntity"]},
+  {"type": "locate", "q": "Which class represents a pet's type, and what does it extend?", "expect": ["PetType", "NamedEntity"]},
+  {"type": "trace", "q": "Which controller method builds the PageRequest for the owners list, and in which class is it?", "expect": ["OwnerController", "findPaginatedForOwnersLastName"]},
+  {"type": "locate", "q": "Which controller serves the vets list?", "expect": ["VetController"]},
 
-  {"type": "locate",
-   "q": "Which class does Vet extend?",
-   "expect": ["Person"]},
-
-  {"type": "locate",
-   "q": "Which class declares the id field shared by the entities?",
-   "expect": ["BaseEntity"]},
-
-  {"type": "locate",
-   "q": "Which class represents a pet's type, and what does it extend?",
-   "expect": ["PetType", "NamedEntity"]},
-
-  {"type": "trace",
-   "q": "Which controller method builds the PageRequest for the owners list, and in which class is it?",
-   "expect": ["OwnerController", "findPaginatedForOwnersLastName"]},
-
-  {"type": "locate",
-   "q": "Which controller serves the vets list?",
-   "expect": ["VetController"]}
+  {"type": "behavior", "q": "What happens in the find-owners flow when the search matches exactly one owner? Name the controller method involved.", "expect": ["processFindForm", "redirect"]},
+  {"type": "trace", "q": "Which template renders the vets list, and what model attribute does the controller put the vets under?", "expect": ["vetList", "listVets"]},
+  {"type": "config", "q": "How are the vets cached? Name the annotation, the class it is on, and the cache name.", "expect": ["Cacheable", "VetRepository"]},
+  {"type": "locate", "q": "What is the name of the join table between vets and specialties?", "expect": ["vet_specialties"]},
+  {"type": "trace", "q": "Which controller handles adding a new visit for a pet, and which Owner method does it call to attach the visit?", "expect": ["VisitController", "addVisit"]},
+  {"type": "config", "q": "Which file defines the database tables for the default H2 database?", "expect": ["db/h2/schema.sql"]},
+  {"type": "behavior", "q": "What validation is applied when a pet is created with a birth date in the future? Name the class and the error code used.", "expect": ["PetController", "typeMismatch.birthDate"]},
+  {"type": "negative", "q": "Does this application include Spring Security or any authentication configuration? Start your answer with Yes or No, then explain what you checked.", "expect": ["pom.xml"], "expect_start": "no"}
 ]
